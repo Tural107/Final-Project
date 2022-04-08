@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b88329a3-fa65-411c-9b7c-6f2ec1d52e75": {
+      "ProjectGuid": "b88329a3-fa65-411c-9b7c-6f2ec1d52e75",
+      "DisplayName": "ECommerceProjectWithMVC",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "5f5166a2-7e53-466a-8127-4f45ab66fe7d": {
+      "ProjectGuid": "5f5166a2-7e53-466a-8127-4f45ab66fe7d",
+      "DisplayName": "CryptoHashing",
+      "ColorIndex": 1
+    },
+    "a48ef665-a240-4bb6-a195-8c5c99ecb660": {
+      "ProjectGuid": "a48ef665-a240-4bb6-a195-8c5c99ecb660",
+      "DisplayName": "Shop.Cryptolib",
+      "ColorIndex": 2
+    },
+    "22c8e058-b127-4daf-867b-e6f24d270a9b": {
+      "ProjectGuid": "22c8e058-b127-4daf-867b-e6f24d270a9b",
+      "DisplayName": "CryptoManager",
+      "ColorIndex": 3
+    },
+    "5651f1f5-e630-460f-a1ab-381040e315a2": {
+      "ProjectGuid": "5651f1f5-e630-460f-a1ab-381040e315a2",
+      "DisplayName": "ECommerceProjectWithMVC.Domain",
+      "ColorIndex": 4
+    },
+    "cd30d415-efa4-4a30-a8f1-8aa21ff2866b": {
+      "ProjectGuid": "cd30d415-efa4-4a30-a8f1-8aa21ff2866b",
+      "DisplayName": "ECommerceProjectWithMVC.Application",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

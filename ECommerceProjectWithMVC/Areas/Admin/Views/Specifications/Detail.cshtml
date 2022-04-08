@@ -1,0 +1,37 @@
+﻿@model SpecificationViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body card-body-bg-color">
+                  <h4 class="card-title">Specifications</h4>
+                  <p class="card-description">
+                      @Model.Specification.Name Specification Detail
+                  </p>
+                    <h1 class="display-4  border border-primary border-3 rounded" style="width:max-content;">Name: @Model.Specification.Name</h1>
+                    <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">Description: @Model.Specification.Description</h1>
+                    <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">Created Time: @Model.Specification.CreatedTime</h1>
+                    <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">Created By User Id: @Model.Specification.CreatedByUserId</h1>
+                    @if(Model.Specification.DeletedByUserId != null){
+                    <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">Deleted By User Id: @Model.Specification.DeletedByUserId</h1>
+                    <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">Deleted Time: @Model.Specification.DeletedTime</h1>
+                    }
+                  @if(Model.SpecificationCategoryItems.Any()){
+                      <h4 class="card-title">Categories List</h4>
+                  <ol>
+                      @foreach (var item in Model.Categories)
+                         {
+                             @if(Model.SpecificationCategoryItems.Where(c=>c.CategoryId == item.Id).Any()){
+
+                                 <li>
+                                     <h1 class="display-4 border border-primary border-3 rounded" style="width:max-content;">@item.Name</h1>
+                                 </li>
+                             }
+                         }
+                  </ol>
+                  }
+                </div>
+                </div>
+              </div>

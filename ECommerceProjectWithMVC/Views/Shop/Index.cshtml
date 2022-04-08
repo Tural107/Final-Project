@@ -1,0 +1,94 @@
+﻿@model ShopViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+      <!-- Filter -->
+      <div
+        class="w-wrapper pt-5 mt-5 d-flex align-items-center justify-content-center"
+      >
+        <div class="w-filters">
+          
+          <form
+            method="get"
+            class="d-flex flex-wrap justify-content-center align-items-start"
+          >
+          <div class="w-select-wrapper rounded" style="height:50px;">
+            <select class="w-filter-by" name="CategoryId" required>
+              <option value="0">All Categories</option>
+              @foreach (var item in Model.Categories)
+             {
+                 if(item.Id == Model.SelectedCategory){
+                     <option value="@item.Id" selected>@item.Name</option>
+                 }else{
+                     <option value="@item.Id">@item.Name</option>
+                 }
+                 
+             }
+            </select>
+            <span class="focus"></span>
+          </div>
+          <div class="w-select-wrapper rounded" style="height:50px;">
+            <select class="w-filter-by" name="BrandId" required>
+              <option value="0">All Brands</option>
+              @foreach (var item in Model.Brands)
+             {
+                 if(item.Id == Model.SelectedBrand){
+                     <option value=@item.Id selected>@item.Name</option>
+                 }else{
+                     <option value=@item.Id>@item.Name</option>
+                 }
+             }
+            </select>
+          </div>
+          <button class="btn custom-button btn-light " style="height:50px;">Filter Et</button>
+
+          </form>
+        </div>
+      </div>
+      <!-- Filter End -->
+      <div class="container text-center">
+        <div class="d-flex row flex-wrap justify-content-start " >
+        @if (Model.Products.Items.Count != 0)
+        {
+            @foreach (var item in Model.Products.Items)
+             {
+                     <div class="col d-flex justify-content-center" style="max-width:330px;">
+                    <a
+                      asp-controller="Product" asp-action="Index" asp-route-id="@item.Id"
+                      class="card product shadow-lg"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="~/uploads/products/images/@item.Images.FirstOrDefault(p=>p.IsMain == true && p.DeletedTime == null)?.ImagePath"
+                        class="card-img-top"
+                        alt="..."
+                        style="width: 18rem;height:20rem;"
+                      />
+                      <div class="card-body details rounded" >
+                        <h5 style="color: black" class="card-text text-center">
+                          @item.Name
+                        </h5>
+
+                        <p style="color: black" class="card-text text-center">$@item.PriceList.FirstOrDefault(p=>p.ProductId == item.Id && p.DeletedTime == null).Price</p>
+                        <button asp-controller="Product" asp-action="Index" asp-route-id="@item.Id" class="btn custom-button btn-light">Go To Product</button>
+                      </div>
+                    </a>
+                    </div>
+                }
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            @Model.Products.GetPagenation(Url)
+        </div>
+                
+
+        }
+        else
+        {
+            <h3 style="color: black" class="card-text text-center">
+               Product not found       
+             </h3>
+        }
+    </div>
+      </div>
+    

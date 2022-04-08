@@ -1,0 +1,166 @@
+﻿@model ProductIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+    <section class="pt-5 mt-5">
+        <div class="container">
+            <div class="heading-section">
+                <h2>@Model.Product.Name</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="slider" class="owl-carousel product-slider border border-dark  border-3 rounded">
+                        @{ var MainPhoto = Model.ProductImages.FirstOrDefault(p => p.IsMain == true); }
+
+                        @if (MainPhoto != null)
+                        {
+            <div class="item border-0">
+                <img src="~/uploads/products/images/@Model.ProductImages.FirstOrDefault(p=>p.IsMain == true).ImagePath" />
+            </div>}
+
+                        @foreach (var item in Model.ProductImages.Where(p => p.IsMain == false))
+                        {
+            <div class="item border-0">
+                <img src="~/uploads/products/images/@item.ImagePath" />
+            </div>}
+                    </div>
+                    <div id="thumb" class="owl-carousel product-thumb border border-dark  border-3 mt-3 rounded">
+                        @if (MainPhoto != null)
+                        {
+            <div class="item border-0">
+                <img src="~/uploads/products/images/@Model.ProductImages.FirstOrDefault(p=>p.IsMain == true).ImagePath" />
+            </div>}
+
+                        @foreach (var item in Model.ProductImages.Where(p => p.IsMain == false))
+                        {
+            <div class="item border-0">
+                <img src="~/uploads/products/images/@item.ImagePath" />
+            </div>}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-dtl">
+                        <div class="product-info">
+                            <div class="product-name">@Model.Product.Brand.Name</div>
+                        </div>
+                        <p class="text-dark">
+                            @Model.Product.ShortDescription
+                        </p>
+
+                        <div class="accordion mt-3 border border-dark border-3 rounded" id="accordionExample">
+                            <div class="accordion-item border-0 border-bottom border-dark">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        DESCIPTIONS
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h3>Specifications:</h3>
+                                        @Model.Product.Description
+                                        @foreach (var item in Model.Specifications)
+                                        {
+                                            var t = Model.SpecificationProductItems.Where(s => s.SpecificationId == item.Id).FirstOrDefault();
+
+
+                                            if (t != null)
+                                            {
+                            <label>@item.Name</label>
+                                                <h3>@t.Value</h3>}
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            @* ///// *@
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Comments (@Model.Product.Comments.Count)
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="review-heading">COMMENTS</div>
+                                        @if (Model.Product.Comments.Count != 0)
+                                        {
+                            @foreach (var item in Model.Product.Comments)
+                            {
+
+                    <div class="alert alert-dark" role="alert">
+                        <p class="mb-20">@Model.Users.FirstOrDefault(P => P.Id == item.CreatedByUserId).Name @Model.Users.FirstOrDefault(P => P.Id == item.CreatedByUserId).Surname</p>
+                        <p class="mb-20">@item.Comment</p>
+                    </div>} }
+                        else
+                        {
+                    <p class="mb-20">There are no reviews yet.</p>}
+                                        <form method="post" asp-action="Index" asp-route-id="@Model.Product.Id" class="review-form">
+                                            <div class="form-group">
+                                                <label>Your message</label>
+                                                <textarea class="form-control" name="comment" rows="10"></textarea>
+                                            </div>
+                                            <button class="round-black-btn">Submit Review</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form asp-action="AddToCard" method="post">
+                            <div class="d-flex">
+                                <div class="row m-1">
+                                    <div class="col-md-6">
+                                        <label for="color">Color</label>
+                                        <select id="color" name="colorId" class="form-control  border border-dark " style="width:max-content;">
+                                            @foreach (var item in Model.ProductPricings)
+                                            {
+                                <option value=@item.ColorId>@item.Color.Name</option>
+}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-md-6">
+                                        <label for="size">Size</label>
+                                        <select id="size" name="sizeId" class="form-control border border-dark" style="width:max-content;">
+                                            @foreach (var item in Model.ProductPricings)
+                                            {
+                                <option value=@item.SizeId>@item.Size.Name</option>
+}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-count">
+                                <div class="product-price-discount">Price: <span>$@Model.ProductPricings.FirstOrDefault().Price</span></div>
+
+                                <label for="size">Quantity</label>
+
+                                <div class="d-flex">
+                                    <div class="qtyminus">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </div>
+                                    <input type="text" name="count" value="1" class="qty">
+                                    <div class="qtyplus">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="round-black-btn">Add to Cart</button>
+                            </div>
+                            <input value="@Model.Product.Id" name="productId" type="hidden">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            @* ///////////////////////////////////////////////////// *@
+
+            
+        </div>
+    </section>
+  

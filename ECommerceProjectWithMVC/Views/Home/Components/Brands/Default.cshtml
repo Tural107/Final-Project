@@ -1,0 +1,44 @@
+﻿@model List<Brand>
+
+@*<section class="mt-5 bg-dark">
+        <div class="d-flex justify-content-center p-5 text-center">
+          <h2 style="color: white">Brands</h2>
+        </div>
+        <div class="col-12 bg-dark d-flex justify-content-center text-center">
+          <div
+            class="col-8 bg-dark m-5 mt-1 d-flex justify-content-center text-center flex-wrap"
+          >
+            @foreach (var item in Model)
+            {
+             <div class="col-sm border rounded m-1">
+                 <div class="d-flex justify-content-center p-1 text-center">
+                     
+                     <a class="text-black" style="text-decoration:none;" href="https://localhost:44373/shop?CategoryId=0&BrandId=@item.Id"><h5 style="color: white">@item.Name</h5></a>
+
+                 </div>
+            </div>
+
+            }
+          </div>
+        </div>
+      </section>*@
+
+<div class=" container rounded mt-3">
+    
+    <div class="mb-3">
+        <div class="slider container rounded  ">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <H1 class="text-dark  mb-3">Some Brands</H1>
+            </div>
+            <div class="slide-track user-select-none">
+                @foreach (var item in Model)
+                {
+        <div class="slide">
+            <a class="text-black" style="text-decoration:none;" href="https://localhost:44373/shop?CategoryId=0&BrandId=@item.Id"><h3 style="color: black">@item.Name</h3></a>
+        </div>}
+
+
+            </div>
+        </div>
+    </div>
+</div>

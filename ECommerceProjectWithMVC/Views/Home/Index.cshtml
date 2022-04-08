@@ -1,0 +1,157 @@
+﻿@model List<Product>
+@{ ViewData["Title"] = "Home"; }
+
+@*<section>
+      <div class="col-12">
+        <img
+          class="col-12"
+          src="https://wallpaperaccess.com/full/2478649.jpg"
+          alt=""
+          srcset=""
+        />
+      </div>
+    </section>*@
+<section class="col-12 mt-5 md-5">
+    <div class="col-12 bg-dark mb-3  border-bottom border-dark  border-2 rounded">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="https://www.asus.com/WebsitesBanner/US/banners/adfpzusllai3kch4/adfpzusllai3kch4-0_0_desktop_1X.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://www.asus.com/WebsitesBanner/US/banners/i6i6w0kszhrwdqno/i6i6w0kszhrwdqno-0_0_desktop_1X.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://www.asus.com/WebsitesBanner/US/banners/nym0z7tlamj1mfyg/nym0z7tlamj1mfyg-0_0_desktop_1X.jpg?webp" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-double-left btn-dark rounded rounded-pill p-1" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-double-right btn-dark rounded rounded-pill p-1" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="col-12 mt-5 md-5">
+    <div class="container ">
+        <div class="section-1 d-flex flex-wrap">
+            <div class="card col-12 bg-dark main-item-scale-big mb-2 d-flex align-items-center justify-content-center" style="background-image: url(https://freepngimg.com/download/responsive_web_design/72916-website-web-apple-mockup-laptop-modern-design.png); ">
+                <button onclick="window.location.href= 'https://localhost:44373/shop?CategoryId=0&BrandId=1'" class="text-dark bg-info p-2 mb-2 rounded btn custom-span">
+                    <span>Apple Products</span>
+                </button>
+            </div>
+
+
+            <div class="card-group col-12 ">
+                <div class="card-group col-12 d-flex">
+                    <div class="card main-item-scale bg-danger col-6 d-flex align-items-center justify-content-center" style="background-image: url(https://static-ecpa.acer.com/media/catalog/product/cache/88522f6c1d6da83084bf78ce2a2121bd/a/c/acer-nitro-5_an515-44_rgb-kb_modelmain.png);">
+                        <button onclick="window.location.href='https://localhost:44373/shop?CategoryId=1&BrandId=0'" class="text-dark bg-info p-2 mb-2 rounded btn custom-span">
+                            <span>Laptop</span>
+                        </button>
+                    </div>
+                    <div class="card main-item-scale  col-6 d-flex align-items-center justify-content-center" style="background-image: url(https://www.pngall.com/wp-content/uploads/5/Hyperx-Cloud-II-Gaming-Headset-PNG-Clipart.png); background-color: rgb(57, 133, 168);">
+                        <button onclick="window.location.href='https://localhost:44373/shop?CategoryId=3&BrandId=0'" class="text-dark bg-info p-2 mb-2 rounded btn custom-span">
+                            <span>Headset</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-group  col-12 d-flex">
+                    <div class="card  main-item-scale col-6 d-flex align-items-center justify-content-center" style="background-image: url(https://cdn.discordapp.com/attachments/500597948317564928/961326156748058644/pngegg_2.png); background-color: rgb(67, 104, 67); ">
+                        <button onclick="window.location.href='https://localhost:44373/shop?CategoryId=2&BrandId=0'" class="text-dark bg-info p-2 mb-2 rounded btn custom-span">
+                            <span>Phone</span>
+                        </button>
+                    </div>
+                    <div class="card  main-item-scale  col-6 d-flex align-items-center justify-content-center" style="background-image: url(https://cdn.discordapp.com/attachments/500597948317564928/961326571078160525/kisspng-samsung-gear-s3-frontier-samsung-galaxy-gear-samsu-samsung-gear-5b23b0c2d18352.6106965515290656668582.png); background-color: rgb(94, 23, 161);">
+                        <button onclick="window.location.href='https://localhost:44373/shop?CategoryId=4&BrandId=0'" class="text-dark bg-info p-2 mb-2 rounded btn custom-span">
+                            <span>Watch</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- carousel -->
+        <div class="">
+
+            <div class="bg-dark rounded splide p-2 mt-2  home-some-products">
+                <h2 class="text-light text-center mt-3 ">Some Products</h2>
+                <div class="splide__track m-5">
+                    <ul class="splide__list ">
+
+                        @foreach (var item in Model)
+                        {
+                            <li class="splide__slide">
+                                <div class="card custom-carousel-size">
+                                    <div class="card-body d-flex row justify-content-center">
+                                        <img class="card bg-info " src="~/uploads/products/images/@item.Images.FirstOrDefault(p=>p.IsMain == true)?.ImagePath" alt="" width="100%" height="50%">
+                                        <div class="mt-5 pt-3 pb-3 d-flex justify-content-end row">
+                                            <span class="d-flex justify-content-center ">
+                                                <p>@item.Name</p>
+                                            </span>
+                                            <div class="d-flex justify-content-around align-items-center mt-2">
+                                                <div>PRICE: $@item.PriceList.FirstOrDefault(p => p.ProductId == item.Id).Price</div>
+                                                <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id" class="btn-sm bg-info border-info btn">BUY
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                         }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Carousel Start-->
+@await Component.InvokeAsync("LastAddedProducts")
+<!-- top sell start -->
+@await Component.InvokeAsync("TopSellProducts")
+<!-- brand -->
+@await Component.InvokeAsync("Brands")
+@* <section class="mt-5 bg-dark">
+      <div class="d-flex justify-content-center p-5 text-center">
+        <h2 style="color: white">Brands</h2>
+      </div>
+      <div class="col-12 bg-dark d-flex justify-content-center text-center">
+        <div
+          class="col-8 bg-dark m-5 d-flex justify-content-center text-center flex-wrap"
+        >
+          <div class="col-sm">
+            <div class="d-flex justify-content-center p-1 text-center">
+              <h4 style="color: white">Logitech</h4>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="d-flex justify-content-center p-1 text-center">
+              <h4 style="color: white">Logitech</h4>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="d-flex justify-content-center p-1 text-center">
+              <h4 style="color: white">Logitech</h4>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="d-flex justify-content-center p-1 text-center">
+              <h4 style="color: white">Logitech</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>*@
